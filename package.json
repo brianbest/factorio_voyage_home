@@ -5,10 +5,12 @@
   "description": "Development checks and packaging for the Factorio mod",
   "type": "module",
   "scripts": {
-    "check": "node tools/validate.mjs",
+    "check": "node tools/validate.mjs && npm test",
+    "test": "fengari tests/run.lua && fengari tests/runtime-core.lua",
     "package": "node tools/package.mjs"
   },
   "devDependencies": {
+    "fengari-node-cli": "^0.1.0",
     "luaparse": "^0.3.1"
   }
 }
