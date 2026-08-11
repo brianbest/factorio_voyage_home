@@ -90,6 +90,15 @@ function vessel.refund(event, context)
   local hub = is_valid(platform) and platform.hub or nil
   if is_valid(hub) and hub.insert(stack) == 1 then return "platform" end
 
+  -- Script-raised construction has no consumed player/robot/platform item to
+  -- return. Spilling here would manufacture a free vessel for another mod's
+  -- placement attempt.
+  if event.name == defines.events.script_raised_built
+    or event.name == defines.events.script_raised_revive
+  then
+    return "not-required"
+  end
+
   spill(context.surface, context.position, context.force, stack)
   return "surface"
 end

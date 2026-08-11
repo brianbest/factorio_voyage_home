@@ -167,7 +167,16 @@ local function spawn_vessel_handler(command)
   end
   local inserted = player.insert { name = config.VESSEL_NAME, count = 1 }
   if inserted ~= 1 then
-    return result(false, "inventory-full", { "Player inventory has no room for the Interstellar Vessel." })
+    player.physical_surface.spill_item_stack {
+      position = player.physical_position,
+      stack = {name = config.VESSEL_NAME, count = 1},
+      enable_looted = true,
+      force = player.force,
+      allow_belts = false,
+    }
+    return result(true, "vessel-spilled", {
+      "Player inventory was full; one Interstellar Vessel was placed at the player's physical position."
+    })
   end
   return result(true, "vessel-spawned", { "One Interstellar Vessel added to player inventory." })
 end
@@ -199,9 +208,6 @@ local function reset_mission_state_handler(command)
   mission.phase = config.PHASE.LOCKED
   mission.max_shattered_distance_km = 0
   mission.discovery_tick = nil
-  mission.vessel_unit_number = nil
-  mission.vessel_platform_index = nil
-  mission.vessel_destroy_registration = nil
   mission.transition_nonce = nil
   mission.transition_seed = nil
   mission.transition_step = nil

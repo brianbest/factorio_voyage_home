@@ -1,6 +1,10 @@
 package.path = "./?.lua;./?/init.lua;" .. package.path
 
 defines = {
+  events = {
+    script_raised_built = 101,
+    script_raised_revive = 102,
+  },
   inventory = {
     chest = 1,
     robot_cargo = 2,
@@ -197,6 +201,25 @@ test("vessel placement enforces platform, phase, and singleton ownership", funct
   equal(result.accepted, false)
   equal(result.reason, "already-exists")
   equal(second.valid, false)
+end)
+
+test("script-raised invalid placement does not manufacture a refund item", function()
+  local spills = 0
+  local surface = {
+    valid = true,
+    spill_item_stack = function() spills = spills + 1 end,
+  }
+  local destination = vessel.refund(
+    {name = defines.events.script_raised_built},
+    {
+      stack = {name = config.VESSEL_NAME, count = 1},
+      surface = surface,
+      position = {0, 0},
+      force = {index = 1},
+    }
+  )
+  equal(destination, "not-required")
+  equal(spills, 0)
 end)
 
 test("readiness derives every guard and reacts to cargo and cursor changes", function()
