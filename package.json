@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "check": "node tools/validate.mjs && npm test",
-    "test": "fengari tests/run.lua && fengari tests/runtime-core.lua",
+    "test": "fengari tests/run.lua && fengari tests/runtime-core.lua && fengari tests/reset-tooling.lua && fengari tests/control-wiring.lua && fengari tests/data-stage.lua",
     "package": "node tools/package.mjs"
   },
   "devDependencies": {

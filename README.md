@@ -65,6 +65,8 @@ No handler trusts the GUI's enabled state. The full readiness check runs again w
 | Document | Contents |
 |---|---|
 | [Architecture](docs/architecture.md) | Modules, invariants, events, and transaction boundaries |
+| [Runtime guide](docs/runtime.md) | State machine, readiness, interface fallback, and events |
+| [Reset and recovery](docs/reset-transaction.md) | Preflight, commit sequence, carryover, and recovery |
 | [Testing](docs/testing.md) | Automated checks, in-game test workflow, and acceptance matrix |
 | [Compatibility](docs/compatibility.md) | Supported game version and known API risks |
 | [Contributing](CONTRIBUTING.md) | Repository workflow and coding conventions |

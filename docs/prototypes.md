@@ -19,7 +19,7 @@ This document describes the prototypes that make **The Voyage Home** visible and
 | Setting | Default | Range | Data-stage effect |
 |---|---:|---:|---|
 | `tvh-discovery-distance-km` | 100,000 km | 1,000–4,000,000 km | Sets the corridor prototype length and the scripted technology's trigger description. Runtime discovery must use the same startup value. |
-| `tvh-cargo-capacity-multiplier` | 1.0 | 0.1–100.0 | Has no prototype-stage weight restriction. Runtime code multiplies `prototypes.utility_constants.default.default_rocket_lift_weight` by this value. |
+| `tvh-cargo-capacity-multiplier` | 1.0 | 0.1–100.0 | Has no prototype-stage weight restriction. Runtime code multiplies `prototypes.utility_constants.default_rocket_lift_weight` by this value. |
 | `tvh-development-commands` | Off | On/off | Enables administrator-only progress-changing commands. Status and dry-run diagnostics remain available when disabled. |
 
 Startup settings are intentional: changing either value changes the rules of the save and therefore requires Factorio to reload prototypes.

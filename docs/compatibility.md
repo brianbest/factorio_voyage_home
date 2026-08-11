@@ -6,10 +6,10 @@ The mod targets **Factorio 2.1 with Space Age** as required by the MVP specifica
 
 ## Development environment
 
-The workstation used for initial implementation currently has Factorio 2.0.60 installed. That build is useful for inspecting Space Age data prototypes, but it cannot qualify a 2.1 mod or exercise 2.1-only runtime methods. Consequently:
+The workstation used for initial implementation has a prior Factorio 2.0.60 Space Age log, but no Factorio executable is currently available. That older record is useful only as environment context; it cannot qualify a 2.1 mod or exercise 2.1-only runtime methods. Consequently:
 
 - Static checks and pure Lua tests may be completed locally.
-- Prototype inspection may use 2.0.60 as a conservative reference.
+- Prototype work is checked against the official 2.1 API and focused data-stage doubles.
 - Final data-stage and in-game acceptance require a Factorio 2.1 installation.
 - No acceptance test is marked passed solely because a similar 2.0 prototype exists.
 
