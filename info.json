@@ -1,0 +1,12 @@
+{
+  "name": "factorio-the-voyage-home",
+  "version": "0.1.0",
+  "title": "Factorio: The Voyage Home",
+  "author": "Brian Best and contributors",
+  "description": "A single-system New Game Plus voyage for Factorio: Space Age. Earn an interstellar jump, preserve one vessel of cargo, and begin again in a freshly generated solar system.",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1.0",
+    "space-age >= 2.1.0"
+  ]
+}

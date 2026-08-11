@@ -1,0 +1,5 @@
+require("prototypes.recipe-category")
+require("prototypes.vessel")
+require("prototypes.arrival-cache")
+require("prototypes.space-locations")
+require("prototypes.technologies")
