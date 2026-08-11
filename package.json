@@ -1,0 +1,14 @@
+{
+  "name": "factorio-the-voyage-home-dev",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Development checks and packaging for the Factorio mod",
+  "type": "module",
+  "scripts": {
+    "check": "node tools/validate.mjs",
+    "package": "node tools/package.mjs"
+  },
+  "devDependencies": {
+    "luaparse": "^0.3.1"
+  }
+}
