@@ -6,11 +6,12 @@ The mod targets **Factorio 2.1 with Space Age** as required by the MVP specifica
 
 ## Development environment
 
-The workstation used for initial implementation has a prior Factorio 2.0.60 Space Age log, but no Factorio executable is currently available. That older record is useful only as environment context; it cannot qualify a 2.1 mod or exercise 2.1-only runtime methods. Consequently:
+The workstation used for development has Factorio **2.0.77 (Steam, Space Age)** installed. That build correctly refuses to load this mod (`factorio_version = "2.1"`), so it cannot qualify the 2.1 target or exercise 2.1-only runtime methods (`LuaInventory::transfer_from_inventory`, recipe `categories`, `on_gui_inventory_action`, the `auto_save` replay flag, `default_rocket_lift_weight`). It is still useful evidence:
 
 - Static checks and pure Lua tests may be completed locally.
 - Prototype work is checked against the official 2.1 API and focused data-stage doubles.
-- Final data-stage and in-game acceptance require a Factorio 2.1 installation.
+- A temporarily down-pinned copy (info.json set to 2.0 and recipe `categories` collapsed to 2.0's singular `category`) loads the full data stage, creates a map, and boots the runtime on 2.0.77. This smoke-tests everything except the 2.1-only surface, but is never recorded as an acceptance pass.
+- Final data-stage and in-game acceptance require a Factorio 2.1 installation (experimental branch, or stable once released).
 - No acceptance test is marked passed solely because a similar 2.0 prototype exists.
 
 ## Compatibility promises

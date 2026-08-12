@@ -11,7 +11,9 @@ data:extend({
       type = "scripted",
       trigger_description = {
         "technology-trigger.tvh-interstellar-signal",
-        settings.startup["tvh-discovery-distance-km"].value
+        -- Prototype property trees reject non-string localised-string
+        -- parameters; the engine fails the data stage on a raw number here.
+        tostring(settings.startup["tvh-discovery-distance-km"].value)
       }
     },
     order = "z[the-voyage-home]-a[interstellar-signal]"

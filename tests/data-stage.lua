@@ -157,6 +157,15 @@ test("all custom prototype names are registered", function()
   end
 end)
 
+test("signal trigger description parameters are property-tree-safe strings", function()
+  local signal = data.raw.technology["tvh-interstellar-signal"]
+  local description = signal.research_trigger.trigger_description
+  equal(type(description), "table", "trigger_description")
+  for index, element in ipairs(description) do
+    equal(type(element), "string", "trigger_description element " .. index)
+  end
+end)
+
 test("vessel and arrival cache remain fixed 48-slot containers", function()
   local vessel = data.raw.container["tvh-interstellar-vessel"]
   local cache = data.raw.container["tvh-arrival-cache"]

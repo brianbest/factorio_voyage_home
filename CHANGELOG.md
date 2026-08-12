@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The project follows sem
 
 ## [Unreleased]
 
+### Fixed
+
+- The Interstellar Signal `trigger_description` passed the discovery-distance setting as a number, which the engine's prototype property tree rejects ("Value must be a string"), failing the entire data stage. The value is now stringified, and a mock data-stage test guards trigger-description parameter types. Found by loading the mod in a live Factorio engine.
+
 ### Added
 
 - Initial MVP architecture, safety model, compatibility boundary, and acceptance-test plan.
