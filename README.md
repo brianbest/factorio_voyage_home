@@ -68,6 +68,7 @@ No handler trusts the GUI's enabled state. The full readiness check runs again w
 | [Runtime guide](docs/runtime.md) | State machine, readiness, interface fallback, and events |
 | [Reset and recovery](docs/reset-transaction.md) | Preflight, commit sequence, carryover, and recovery |
 | [Testing](docs/testing.md) | Automated checks, in-game test workflow, and acceptance matrix |
+| [Live engine results](docs/live-engine-results.md) | Real Factorio versions, commands, evidence, and qualification limits |
 | [Compatibility](docs/compatibility.md) | Supported game version and known API risks |
 | [Contributing](CONTRIBUTING.md) | Repository workflow and coding conventions |
 | [Changelog](CHANGELOG.md) | Human-readable release history |

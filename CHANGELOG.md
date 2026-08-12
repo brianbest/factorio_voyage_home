@@ -17,6 +17,7 @@ All notable changes to this project are documented here. The project follows sem
 - Guarded reset preflight and transaction with native stack preservation, deterministic reseeding, modifier allowlist, recovery nonce, and dry-run reporting.
 - Fail-closed administrator development commands and release-safe status/dry-run commands.
 - Automated Lua syntax, localization, module, reset, command, and control-wiring checks.
+- An isolated real-engine smoke runner that creates and replays a disposable Space Age save without touching normal Factorio user data.
 
 ### Known limitations
 

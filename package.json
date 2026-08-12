@@ -7,6 +7,7 @@
   "scripts": {
     "check": "node tools/validate.mjs && npm test",
     "test": "fengari tests/run.lua && fengari tests/runtime-core.lua && fengari tests/reset-tooling.lua && fengari tests/control-wiring.lua && fengari tests/data-stage.lua",
+    "test:factorio": "node tools/live-factorio-smoke.mjs",
     "package": "node tools/package.mjs"
   },
   "devDependencies": {

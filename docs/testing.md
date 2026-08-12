@@ -33,6 +33,34 @@ The current suite provides the following executable evidence:
 
 The prototype stream also passes a mocked settings → data → data-updates load with assertions for the 48-slot containers, recipe category, research ingredients, route length, and asteroid endpoint remapping. This is useful development evidence, but it is not labeled an acceptance pass until Factorio 2.1 loads the mod itself.
 
+## Live engine smoke test
+
+Run the mod against an installed Factorio executable with:
+
+```sh
+npm run test:factorio
+```
+
+The runner never uses the normal Factorio user-data directory. It creates a temporary mod directory, configuration, disposable save, and log; loads the real Space Age data stage; creates a deterministic map; and executes the saved runtime for 180 benchmark ticks. Successful temporary files are removed automatically. Set `TVH_KEEP_LIVE_TEST=1` to retain them for inspection after a passing run.
+
+The executable is discovered from `FACTORIO_BIN`, the shell path, or the standard macOS Steam installation. An explicit binary or a different source checkout can be supplied when needed:
+
+```sh
+node tools/live-factorio-smoke.mjs --factorio /path/to/factorio --source /path/to/mod
+```
+
+Evidence is labeled according to the engine:
+
+| Installed engine | Runner behavior | Evidence level |
+|---|---|---|
+| Factorio 2.1 + Space Age | Loads the unmodified source copy | Target data-stage and runtime smoke acceptance |
+| Factorio 2.0 + Space Age | Down-pins metadata and converts the recipe's 2.1 `categories` field in the temporary copy only | Compatibility smoke; never 2.1 acceptance |
+| Any other incompatible line | Stops without starting the game | No evidence |
+
+The 2.0 shim is intentionally narrow and auditable. A failure elsewhere remains visible; in particular, it does not rewrite localised strings or emulate 2.1 runtime APIs. Deep mission acceptance—platform placement, cargo transfer, the destructive reset, Space Map UI, and save/load phase fixtures—still requires controlled in-game scenarios on Factorio 2.1.
+
+Observed engine versions, commits, commands, and outcomes are recorded in [Live Engine Test Results](live-engine-results.md).
+
 ## Administrator commands
 
 | Command | Release availability | Purpose |
