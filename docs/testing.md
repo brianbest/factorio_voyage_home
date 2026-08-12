@@ -26,7 +26,7 @@ The current suite provides the following executable evidence:
 | Suite | Checks | Result |
 |---|---:|---|
 | Repository validation | 26 Lua files, metadata, required files, 167 locale keys | Pass |
-| Mock data stage | 12 custom identities, containers, recipe/machine, technology, route/asteroids | 5 pass |
+| Mock data stage | 12 custom identities, trigger-description string safety, containers, recipe/machine, technology, route/asteroids | 6 pass |
 | Core contract tests | State, settings, directional discovery, cargo, vessel singleton/refund, readiness | 15 pass |
 | Reset/tooling tests | Modifier allowlist, dry run, full mocked transition, nonce, command gate | 5 pass |
 | Control wiring smoke test | Lifecycle, 60-tick cadence, 22 events, two release commands | Pass |
