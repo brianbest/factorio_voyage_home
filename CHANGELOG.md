@@ -21,6 +21,6 @@ All notable changes to this project are documented here. The project follows sem
 
 ### Known limitations
 
-- Live Factorio 2.1 data-stage and runtime qualification is pending.
+- Baseline data-stage, map-creation, save-reload, and bounded runtime smoke qualification passes on Factorio 2.1.14; interactive and destructive scenarios remain pending.
 - Factorio's autosave request exposes no completion callback; named-save timing requires live qualification.
 - Scheduled platform deletion and Space Map/remote-view UI behavior require live acceptance evidence.

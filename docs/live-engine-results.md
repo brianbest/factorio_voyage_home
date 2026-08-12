@@ -2,7 +2,31 @@
 
 This log records tests performed by a real Factorio executable. It deliberately separates a useful compatibility smoke test from qualification on the mod's supported Factorio 2.1 target.
 
-## 2026-08-11 — Factorio 2.0.77 compatibility smoke
+## 2026-08-11 — Factorio 2.1.14 target smoke
+
+| Field | Value |
+|---|---|
+| Engine | Factorio 2.1.14, build 87180, macOS ARM64, Steam |
+| Expansion | Space Age enabled |
+| Mod source | `main` at `73b2b63c9d5697a49e9cc7f97ac9fb8cc1267d66` |
+| Installed package | `factorio-the-voyage-home_0.1.0.zip`, SHA-256 `04e968dfd037513cc9d029732d80535a76ef93b4a01bf118d4c0558cf954ab1a` |
+| Seed | `246813579` |
+| Runtime duration | 180 benchmark ticks |
+| User data | Isolated temporary directory; normal saves untouched |
+| Result | **Pass — target data-stage and runtime smoke acceptance** |
+
+### What passed
+
+1. The unmodified Factorio 2.1 mod metadata and dependencies were accepted.
+2. The complete base, Recycler, Quality, Elevated Rails, Space Age, and Voyage Home data stages loaded.
+3. Factorio validated the prototype graph and produced the Voyage Home prototype checksum.
+4. Factorio created and saved a deterministic disposable Space Age map.
+5. The save loaded again and ran 180 runtime ticks without a script error.
+6. The packaged ZIP installed in the normal mods directory produced the same prototype and runtime checksums when loaded from an isolated mod list.
+
+No compatibility shim was used. This qualifies the baseline data-stage, initialization, save creation, save reload, and bounded runtime path on the supported engine line. It does not qualify the interactive or destructive acceptance cases.
+
+## 2026-08-11 — Historical Factorio 2.0.77 compatibility smoke
 
 | Field | Value |
 |---|---|
@@ -45,14 +69,12 @@ The installed engine is Factorio 2.0.77, while the mod targets 2.1. The runner c
 
 The shim does not alter localized strings, runtime logic, state, events, or cargo/reset behavior. Consequently, this result is strong data-stage and startup evidence but **not** a Factorio 2.1 acceptance pass.
 
-## Next target-qualified run
+## Remaining live qualification
 
-Factorio 2.1 is currently available through the official experimental channel. Once a 2.1 executable is installed, the same command loads an unmodified source copy and labels the result as target acceptance:
+The target smoke can be repeated at any time with:
 
 ```sh
 npm run test:factorio
 ```
 
-Wube recommends backing up saves and blueprints before moving a Steam installation to experimental because upgraded saves and blueprints cannot be downgraded. A separate experimental installation is therefore preferable for this mod's destructive acceptance work. See the [official 2.1 experimental announcement](https://www.factorio.com/blog/post/fff-444) and [experimental download page](https://www.factorio.com/download/experimental).
-
-The full twenty-case matrix remains in [Testing and Acceptance](testing.md). The next live phase should use Factorio 2.1 and disposable saves to qualify platform placement, cargo fidelity, force reset, surface regeneration, UI visibility, and save/load resilience.
+The full twenty-case matrix remains in [Testing and Acceptance](testing.md). The next live phase should use disposable Factorio 2.1 saves to qualify platform placement, cargo fidelity, force reset, surface regeneration, UI visibility, and save/load resilience.

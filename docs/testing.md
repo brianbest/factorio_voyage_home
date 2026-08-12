@@ -30,8 +30,9 @@ The current suite provides the following executable evidence:
 | Core contract tests | State, settings, directional discovery, cargo, vessel singleton/refund, readiness | 15 pass |
 | Reset/tooling tests | Modifier allowlist, dry run, full mocked transition, nonce, command gate | 5 pass |
 | Control wiring smoke test | Lifecycle, 60-tick cadence, 22 events, two release commands | Pass |
+| Factorio 2.1 target smoke | Unmodified data stage, map creation, save reload, 180 runtime ticks | Pass on 2.1.14 |
 
-The prototype stream also passes a mocked settings → data → data-updates load with assertions for the 48-slot containers, recipe category, research ingredients, route length, and asteroid endpoint remapping. This is useful development evidence, but it is not labeled an acceptance pass until Factorio 2.1 loads the mod itself.
+The prototype stream also passes a mocked settings → data → data-updates load with assertions for the 48-slot containers, recipe category, research ingredients, route length, and asteroid endpoint remapping. The real Factorio 2.1.14 engine now validates the resulting prototype graph and bounded runtime initialization; deeper gameplay behavior remains tracked separately in the acceptance matrix.
 
 ## Live engine smoke test
 
